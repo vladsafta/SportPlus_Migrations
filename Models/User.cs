@@ -13,4 +13,6 @@ public class User
     public ICollection<Comanda> Comenzi { get; set; }
     public ICollection<Contact> Contacte { get; set; }
     public Cos Cos { get; set; }
+    public string? PozaProfil { get; set; } // numele fișierului, ex: "vlad.jpg"
+    public string Rol { get; set; } = "User";
 }

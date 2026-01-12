@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Coș de cumparaturi";
+    ViewData["MetaRobots"] = "noindex,nofollow";
+}
+
+
+<section class="container my-5">
+    <h2 class="text-center mb-4">Produsele din Coș</h2>
+    <div id="cart-items" class="row">
+        <!-- Produsele vor fi injectate prin JavaScript -->
+    </div>
+    <div class="text-center mt-4">
+        <h4>Total: <span id="cart-total">0</span> EUR</h4>
+        <button class="btn btn-success" onclick="checkout()">Finalizează Comanda</button>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        function loadCart() {
+            const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            const cartContainer = document.getElementById("cart-items");
+            const cartTotal = document.getElementById("cart-total");
+
+            cartContainer.innerHTML = '';
+            let total = 0;
+
+            cartItems.forEach(item => {
+                total += item.price;
+
+                const itemDiv = document.createElement("div");
+                itemDiv.className = "col-md-4 mb-4";
+                itemDiv.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${item.image}" class="card-img-top" alt="${item.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.name}</h5>
+                            <p class="card-text">€${item.price.toFixed(2)} EUR</p>
+                        </div>
+                    </div>
+                `;
+                cartContainer.appendChild(itemDiv);
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function checkout() {
+            alert("Comanda a fost finalizată!");
+            localStorage.removeItem("cart");
+            loadCart();
+        }
+
+        document.addEventListener("DOMContentLoaded", loadCart);
+    </script>
+}

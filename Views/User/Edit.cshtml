@@ -1,0 +1,32 @@
+@model User
+
+@{
+    ViewData["Title"] = "Editare Utilizator";
+}
+
+<h1>Editare Utilizator</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="UserId" />
+    <div class="form-group">
+        <label asp-for="Nume"></label>
+        <input asp-for="Nume" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Parola"></label>
+        <input asp-for="Parola" class="form-control" type="password" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Adresa"></label>
+        <input asp-for="Adresa" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Telefon"></label>
+        <input asp-for="Telefon" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvează</button>
+</form>

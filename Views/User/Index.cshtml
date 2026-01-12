@@ -1,0 +1,38 @@
+@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Utilizatori";
+}
+
+<h1>Lista Utilizatori</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Adaugă Utilizator Nou</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Nume)</th>
+        <th>@Html.DisplayNameFor(model => model.Email)</th>
+        <th>@Html.DisplayNameFor(model => model.Adresa)</th>
+        <th>@Html.DisplayNameFor(model => model.Telefon)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nume)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.Adresa)</td>
+            <td>@Html.DisplayFor(modelItem => item.Telefon)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserId">Detalii</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserId">Șterge</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

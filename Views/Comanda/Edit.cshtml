@@ -1,0 +1,38 @@
+@model Comanda
+
+@{
+    ViewData["Title"] = "Editare Comandă";
+}
+
+<h1>Editare Comandă</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="ComandaId" />
+
+    <div class="form-group">
+        <label asp-for="UserId" class="control-label">User ID</label>
+        <input asp-for="UserId" class="form-control" />
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataComanda" class="control-label">Data</label>
+        <input asp-for="DataComanda" class="form-control" />
+        <span asp-validation-for="DataComanda" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PretTotal" class="control-label">Preț Total</label>
+        <input asp-for="PretTotal" class="form-control" />
+        <span asp-validation-for="PretTotal" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status" class="control-label">Status</label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvează</button>
+    <a asp-action="Index" class="btn btn-secondary">Înapoi</a>
+</form>

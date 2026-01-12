@@ -9,7 +9,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Categorie> Categorii { get; set; }
     public DbSet<Comanda> Comenzi { get; set; }
     public DbSet<ComandaItem> ComandaItems { get; set; }
-    public DbSet<Cos> Cosuri { get; set; }
+    public DbSet<Cos> Cos { get; set; }
     public DbSet<CosItem> CosItems { get; set; }
     public DbSet<Contact> Contacte { get; set; }
 

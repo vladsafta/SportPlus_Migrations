@@ -1,0 +1,31 @@
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Log In";
+}
+
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="text-center mb-4">Autentificare</h2>
+
+    <form asp-action="Login" method="post">
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Parola" class="form-label"></label>
+            <input asp-for="Parola" type="password" class="form-control" />
+            <span asp-validation-for="Parola" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Autentificare</button>
+    </form>
+
+    <div class="mt-3 text-center">
+        <a asp-action="Register">Nu ai cont? Înregistrează-te</a>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Contact SportPlus";
+    ViewData["MetaDescription"] = "Contactează SportPlus pentru informații despre produse, comenzi și suport. Trimite-ne un mesaj și îți răspundem cât mai rapid.";
+}
+
+
+<section id="contact-container" class="container my-5">
+    <h2>Contactează-ne</h2>
+    <p>Pentru orice întrebări, ne poți contacta folosind formularul de mai jos:</p>
+
+    <form id="contact-form" method="post">
+        <label for="name">Nume:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Mesaj:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Trimite</button>
+    </form>
+
+    <div id="contact-info" class="mt-5">
+        <h3>Program de lucru</h3>
+        <p><strong>Luni - Vineri:</strong> 09:00 - 18:00</p>
+        <p><strong>Sâmbătă:</strong> 09:00 - 14:00</p>
+        <p><strong>Duminică:</strong> Închis</p>
+
+        <h3>Alte metode de contact</h3>
+        <p><strong>Email:</strong> contact@sportplus.ro</p>
+        <p><strong>Telefon:</strong> 0712345678</p>
+        <p><strong>Adresă:</strong> Craiova, Str. Grigore Plesoianu, nr. 34, 200457</p>
+    </div>
+</section>

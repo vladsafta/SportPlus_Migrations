@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://localhost:5206/</loc>
+    </url>
+
+    <url>
+        <loc>https://localhost:5206/Produse</loc>
+    </url>
+
+    <url>
+        <loc>https://localhost:5205/DespreNoi</loc>
+    </url>
+
+    <url>
+        <loc>https://localhost:5206/Contact</loc>
+    </url>
+
+    <url>
+        <loc>https://localhost:5206/GhidMarimi</loc>
+    </url>
+
+    <url>
+        <loc>https://localhost:5206/Slabeste</loc>
+    </url>
+
+    <url>
+        <loc>https://localhost:5206/FAQ</loc>
+    </url>
+
+</urlset>

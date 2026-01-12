@@ -1,0 +1,32 @@
+#about-us {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#about-us h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #27ae60;
+    padding-bottom: 5px;
+}
+
+#about-us p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#about-us ul {
+    padding-left: 20px;
+}
+
+#about-us ul li {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 5px;
+}

@@ -1,50 +1,112 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SportPlus</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SportPlus.styles.css" asp-append-version="true" />
+    
+    <title>@ViewData["Title"] - SportPlus</title> 
+
+    @* SEO  *@
+    @{
+        // meta
+        var metaDescription = (ViewData["MetaDescription"] as string)
+                                  ?? "SportPlus – articole sportive, echipamente și ghiduri pentru antrenament.";
+        // robots
+        var metaRobots = (ViewData["MetaRobots"] as string) ?? "index,follow";
+        // canonical
+        var canonical = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}";
+        
+        var ogTitle = (ViewData["OgTitle"] as string) ?? ((ViewData["Title"] as string) ?? "SportPlus");
+        var ogDescription = (ViewData["OgDescription"] as string) ?? metaDescription;
+        var ogImage = (ViewData["OgImage"] as string) 
+                      ?? $"{Context.Request.Scheme}://{Context.Request.Host}/images/og-default.jpg";
+    }
+    <meta name="description" content="@metaDescription" />
+    <meta name="robots" content="@metaRobots" />
+    <link rel="canonical" href="@canonical" />
+
+    @* open Graph *@
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SportPlus" />
+    <meta property="og:title" content="@ogTitle" />
+    <meta property="og:description" content="@ogDescription" />
+    <meta property="og:url" content="@canonical" />
+    <meta property="og:image" content="@ogImage" />
+
+    @* twitter Card *@
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@ogTitle" />
+    <meta name="twitter:description" content="@ogDescription" />
+    <meta name="twitter:image" content="@ogImage" />
+
+    @* per-page head *@
+    @RenderSection("Head", required: false)
+
+    <!-- CSS local -->
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/Index.css" />
+    <link rel="stylesheet" href="~/css/Produse.css" />
+    <link rel="stylesheet" href="~/css/Contact.css" />
+    <link rel="stylesheet" href="~/css/cart.css" />
+    <link rel="stylesheet" href="~/css/Slabeste.css" />
+    <link rel="stylesheet" href="~/css/FAQ.css" />
+    <link rel="stylesheet" href="~/css/DespreNoi.css" />
+    
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SportPlus</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            &copy; 2025 - SportPlus - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="navbar-brand" asp-page="/Index">SportPlus</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" asp-controller="Home" asp-action="Index">Acasă</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Produse" asp-action="Index">Produse</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Login">Log In</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Cont" asp-action="Index">Cont</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Cos" asp-action="Index">Coș</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="DespreNoi" asp-action="Index">Despre Noi</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Contact" asp-action="Index">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="GhidMarimi" asp-action="Index">Ghid Mărimi</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Slabeste" asp-action="Index">Slăbește Sănătos!</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Faq" asp-action="Index">FAQ</a></li>
+                    </ul>
+                </ul>
+            </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    </nav>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Cont" asp-action="Index">
+                @User.Identity.Name (@User.FindFirst("role")?.Value)
+            </a>
+        </li>
+    }
+
+</header>
+
+<main role="main" class="pb-3">
+    @RenderBody()
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 SportPlus - All Rights Reserved</p>
+        <img src="~/images/uefa.jpg" alt="UEFA Champions League" class="uefa-logo">
+        <img src="~/images/ucl1.png" alt="UEFA Champions League" class="ucl1-logo">
+        <p>Official Sponsor</p>
+    </div>
+</footer>
+
+@RenderSection("Scripts", required: false)
 </body>
 </html>

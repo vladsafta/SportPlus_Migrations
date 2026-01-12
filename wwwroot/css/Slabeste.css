@@ -1,0 +1,19 @@
+.calculator-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#result {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+}

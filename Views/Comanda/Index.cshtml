@@ -1,0 +1,41 @@
+@model IEnumerable<Comanda>
+
+@{
+    ViewData["Title"] = "Lista Comenzi";
+}
+
+<h1>Lista Comenzi</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Adaugă Comandă</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Data Comandă</th>
+        <th>Preț Total</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var comanda in Model)
+    {
+        <tr>
+            <td>@comanda.ComandaId</td>
+            <td>@comanda.User?.Nume</td>
+            <td>@comanda.DataComanda.ToShortDateString()</td>
+            <td>@comanda.PretTotal</td>
+            <td>@comanda.Status</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@comanda.ComandaId">Detalii</a> |
+                <a asp-action="Edit" asp-route-id="@comanda.ComandaId">Editare</a> |
+                <a asp-action="Delete" asp-route-id="@comanda.ComandaId">Ștergere</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
